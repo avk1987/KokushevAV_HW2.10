@@ -10,15 +10,12 @@ import UIKit
 
 class ProfileVievControllerViewController: UIViewController {
 
-    
-
     @IBOutlet var fullName: UILabel!
     @IBOutlet var age: UILabel!
     @IBOutlet var balance: UILabel!
     @IBOutlet var avatar: UIImageView!
     @IBOutlet var userLabelsStack: UIStackView!
     @IBOutlet var userAssetsTableView: UITableView!
-    
     
     private var userProfile: UserProfile? {
         didSet {
@@ -32,8 +29,8 @@ class ProfileVievControllerViewController: UIViewController {
         
         userAssetsTableView.dataSource = self
         userLabelsStack.isHidden.toggle()
-        avatar.layer.cornerRadius = avatar.frame.height / 2
         avatar.layer.borderColor = UIColor.black.cgColor
+        avatar.layer.cornerRadius = avatar.frame.height / 2
         avatar.layer.borderWidth = 2
         
         SharesDataManager.shared.getProfile(completionHandlers: { user in
@@ -41,25 +38,29 @@ class ProfileVievControllerViewController: UIViewController {
                 self.userProfile = user
             }
         })
+
+    }
         
-        SharesDataManager.shared.getUserPhoto(photoURL: "http://dep.komandor-russia.ru/1.png", completionHandlers: { data in
+
+    private func loadProfile(user: UserProfile) {
+        
+        fullName.text = user.fullName
+        age.text = String(user.age)
+        balance.text = String(user.balance)
+        userLabelsStack.isHidden = false
+        userAssetsTableView.reloadData()
+        loadUserAvatar(user: user)
+    }
+    
+    private func loadUserAvatar(user: UserProfile){
+        
+        SharesDataManager.shared.getUserPhoto(photoURL: user.avatar, completionHandlers: { data in
             let avatar = UIImage(data: data)
             
             DispatchQueue.main.async {
                 self.avatar.image = avatar!
             }
         })
-
-    }
-    
-    
-    private func loadProfile(user: UserProfile) {
-        
-        fullName.text = user.fullName
-        self.age.text = String(user.age)
-        self.balance.text = String(user.balance)
-        self.userLabelsStack.isHidden = false
-        userAssetsTableView.reloadData()
         
     }
     
@@ -72,12 +73,11 @@ class ProfileVievControllerViewController: UIViewController {
         
         return(dateFormatter.string(from: yesterday))
         
-        
     }
 
 }
 
-extension ProfileVievControllerViewController: UITableViewDataSource {
+extension ProfileVievControllerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userProfile?.assets.count ?? 0
@@ -87,17 +87,25 @@ extension ProfileVievControllerViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userPortfolioCell", for: indexPath) as! UserAssetsCell
         
         guard let profile = userProfile else { return cell}
-        
-        cell.textLabel?.text = profile.assets[indexPath.row].name
-        
         let priceOfPortfolio = getSummOfShares(shares: profile.assets[indexPath.row].share)
-        
+        cell.textLabel?.text = profile.assets[indexPath.row].name
         cell.portfoliPriceLabel.text = "\(priceOfPortfolio)₽"
         
         return cell
     }
     
-    func getSummOfShares(shares: [Share]) -> String {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = userAssetsTableView.indexPathForSelectedRow else { return }
+        guard let profile = userProfile else { return }
+        
+        let userSharesVC = segue.destination as! UserSharesTableViewController
+        userSharesVC.shares = profile.assets[indexPath.row].share
+        userSharesVC.title = profile.assets[indexPath.row].name
+        userAssetsTableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    
+    private func getSummOfShares(shares: [Share]) -> String {
         
         var sum = 0.0
         

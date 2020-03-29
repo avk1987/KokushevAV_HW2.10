@@ -12,11 +12,15 @@
 		8A39D32B242CED0800AE6792 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A39D329242CED0800AE6792 /* Main.storyboard */; };
 		8A39D32D242CED0C00AE6792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A39D32C242CED0C00AE6792 /* Assets.xcassets */; };
 		8A39D330242CED0C00AE6792 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A39D32E242CED0C00AE6792 /* LaunchScreen.storyboard */; };
-		8A39D339242CF37200AE6792 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39D338242CF37200AE6792 /* Model.swift */; };
+		8A39D339242CF37200AE6792 /* QuotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39D338242CF37200AE6792 /* QuotesModel.swift */; };
 		8A39D33B242D1A3300AE6792 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39D33A242D1A3300AE6792 /* DataManager.swift */; };
 		8A39D33D242E2D2600AE6792 /* ProfileVievControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39D33C242E2D2600AE6792 /* ProfileVievControllerViewController.swift */; };
 		8A39D33F242E2E2600AE6792 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39D33E242E2E2600AE6792 /* UserModel.swift */; };
 		8A39D343242FCC9E00AE6792 /* UserAssetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39D342242FCC9E00AE6792 /* UserAssetsCell.swift */; };
+		8A39D34B242FD5B900AE6792 /* UserSharesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A39D34A242FD5B900AE6792 /* UserSharesTableViewController.swift */; };
+		8A8ED869242FD9ED00559EAB /* UserShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8ED868242FD9ED00559EAB /* UserShareCell.swift */; };
+		8A8ED86B242FE4AE00559EAB /* QuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8ED86A242FE4AE00559EAB /* QuotesTableViewController.swift */; };
+		8A8ED86D24309F6A00559EAB /* ListQuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8ED86C24309F6A00559EAB /* ListQuoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +31,15 @@
 		8A39D32C242CED0C00AE6792 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A39D32F242CED0C00AE6792 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A39D331242CED0C00AE6792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A39D338242CF37200AE6792 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8A39D338242CF37200AE6792 /* QuotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesModel.swift; sourceTree = "<group>"; };
 		8A39D33A242D1A3300AE6792 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8A39D33C242E2D2600AE6792 /* ProfileVievControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVievControllerViewController.swift; sourceTree = "<group>"; };
 		8A39D33E242E2E2600AE6792 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8A39D342242FCC9E00AE6792 /* UserAssetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAssetsCell.swift; sourceTree = "<group>"; };
+		8A39D34A242FD5B900AE6792 /* UserSharesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSharesTableViewController.swift; sourceTree = "<group>"; };
+		8A8ED868242FD9ED00559EAB /* UserShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserShareCell.swift; sourceTree = "<group>"; };
+		8A8ED86A242FE4AE00559EAB /* QuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesTableViewController.swift; sourceTree = "<group>"; };
+		8A8ED86C24309F6A00559EAB /* ListQuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListQuoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +84,7 @@
 		8A39D337242CED1700AE6792 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8A39D338242CF37200AE6792 /* Model.swift */,
+				8A39D338242CF37200AE6792 /* QuotesModel.swift */,
 				8A39D33A242D1A3300AE6792 /* DataManager.swift */,
 				8A39D33E242E2E2600AE6792 /* UserModel.swift */,
 			);
@@ -95,8 +103,10 @@
 		8A39D345242FD3D300AE6792 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				8A39D342242FCC9E00AE6792 /* UserAssetsCell.swift */,
 				8A39D33C242E2D2600AE6792 /* ProfileVievControllerViewController.swift */,
+				8A39D34A242FD5B900AE6792 /* UserSharesTableViewController.swift */,
+				8A39D342242FCC9E00AE6792 /* UserAssetsCell.swift */,
+				8A8ED868242FD9ED00559EAB /* UserShareCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -115,6 +125,8 @@
 		8A39D349242FD4BB00AE6792 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
+				8A8ED86A242FE4AE00559EAB /* QuotesTableViewController.swift */,
+				8A8ED86C24309F6A00559EAB /* ListQuoteCell.swift */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -190,13 +202,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A8ED86B242FE4AE00559EAB /* QuotesTableViewController.swift in Sources */,
+				8A8ED86D24309F6A00559EAB /* ListQuoteCell.swift in Sources */,
 				8A39D343242FCC9E00AE6792 /* UserAssetsCell.swift in Sources */,
 				8A39D33F242E2E2600AE6792 /* UserModel.swift in Sources */,
+				8A39D34B242FD5B900AE6792 /* UserSharesTableViewController.swift in Sources */,
 				8A39D33B242D1A3300AE6792 /* DataManager.swift in Sources */,
+				8A8ED869242FD9ED00559EAB /* UserShareCell.swift in Sources */,
 				8A39D33D242E2D2600AE6792 /* ProfileVievControllerViewController.swift in Sources */,
 				8A39D324242CED0800AE6792 /* AppDelegate.swift in Sources */,
 				8A39D326242CED0800AE6792 /* SceneDelegate.swift in Sources */,
-				8A39D339242CF37200AE6792 /* Model.swift in Sources */,
+				8A39D339242CF37200AE6792 /* QuotesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
